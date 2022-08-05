@@ -207,7 +207,7 @@ const createLayer = (options, map) => {
             maxResolution: options.maxResolution,
             source: new ImageWMS({
                 url: urls[0],
-                crossOrigin: options.crossOrigin,
+                crossOrigin: options.crossOrigin || 'anonymous',
                 attributions: toOLAttributions(options.credits),
                 params: queryParameters,
                 ratio: options.ratio || 1,
@@ -221,7 +221,7 @@ const createLayer = (options, map) => {
     const sourceOptions = addTileLoadFunction({
         attributions: toOLAttributions(options.credits),
         urls: urls,
-        crossOrigin: options.crossOrigin,
+        crossOrigin: options.crossOrigin || 'anonymous',
         params: queryParameters,
         tileGrid: new TileGrid({
             extent: extent,
