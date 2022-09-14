@@ -29,6 +29,7 @@ import url from 'url';
 
 import { baseTemplates, customTemplates } from './styleeditor/stylesTemplates';
 import { getStyleParser } from './VectorStyleUtils';
+import { updateAnchorPointBeforeBuildXml } from './SldParserUpdate';
 import xml2js from 'xml2js';
 const xmlBuilder = new xml2js.Builder();
 
@@ -518,8 +519,9 @@ export const updateExternalGraphicNode = (options, parsedSLD) => {
     let parsedCode = parsedSLD;
     if (options.format === 'sld') {
         xml2js.parseString(parsedSLD, { explicitArray: false }, (_, result) => {
+            const updateResult = updateAnchorPointBeforeBuildXml(result, options.style.rules);
             const rulePath = 'StyledLayerDescriptor.NamedLayer.UserStyle.FeatureTypeStyle.Rule';
-            let rules = castArray(get(result, rulePath, []));
+            let rules = castArray(get(updateResult, rulePath, []));
             rules = flatten(rules.map((rule, i)=> {
                 const { baseGraphicPath, imgFormat } = getParseContent(options.style?.rules || [], i);
                 const externalGraphicPath = `${baseGraphicPath}.Graphic.ExternalGraphic`;
@@ -537,7 +539,7 @@ export const updateExternalGraphicNode = (options, parsedSLD) => {
             if (formatInvalid) {
                 parsedCode = '';
             } else {
-                parsedCode = xmlBuilder.buildObject(set(result, rulePath, rules));
+                parsedCode = xmlBuilder.buildObject(set(updateResult, rulePath, rules));
             }
         });
     }

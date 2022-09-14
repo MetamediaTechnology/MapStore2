@@ -329,6 +329,9 @@ const getBlocks = (/* config = {} */) => {
                 offsetY: property.offset({
                     label: 'styleeditor.offsetY',
                     axis: 'y'
+                }),
+                anchor: property.anchor({ 
+                    label: 'styleeditor.anchorPoint' 
                 })
             },
             defaultProperties: {

@@ -24,6 +24,7 @@ import {
     formatJSONStyle,
     updateExternalGraphicNode
 } from '../../utils/StyleEditorUtils';
+import { updateAnchorPointStyleToJson } from '../../utils/SldParserUpdate';
 
 import undoable from 'redux-undo';
 
@@ -189,9 +190,10 @@ function VisualStyleEditor({
                 if (parser && code && defaultStyleJSON === null) {
                     return parser.readStyle(code)
                         .then((newStyle) => {
+                            const updateStyle = updateAnchorPointStyleToJson(newStyle, code);
                             dispatch({
                                 type: UPDATE_STYLE,
-                                payload: formatJSONStyle(newStyle)
+                                payload: formatJSONStyle(updateStyle)
                             });
                             init.current = true;
                         })
@@ -201,10 +203,11 @@ function VisualStyleEditor({
                         }));
                 }
                 if (parser && code && defaultStyleJSON) {
+                    const updateStyle = updateAnchorPointStyleToJson(defaultStyleJSON, code);
                     init.current = true;
                     return dispatch({
                         type: UPDATE_STYLE,
-                        payload: defaultStyleJSON
+                        payload: updateStyle
                     });
                 }
                 if (code && !parser) {
