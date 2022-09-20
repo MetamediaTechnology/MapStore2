@@ -110,14 +110,20 @@ class MeasureComponent extends React.Component {
             {value: "m", label: "m"},
             {value: "km", label: "km"},
             {value: "mi", label: "mi"},
-            {value: "nm", label: "nm"}
+            {value: "nm", label: "nm"},
+            // THAI Measure metric
+            {value: "sqwah", label: "วา"},
         ],
         uomAreaValues: [
             {value: "sqft", label: "ft²"},
             {value: "sqm", label: "m²"},
             {value: "sqkm", label: "km²"},
             {value: "sqmi", label: "mi²"},
-            {value: "sqnm", label: "nm²"}
+            {value: "sqnm", label: "nm²"},
+            // THAI Measure metric
+            {value: "sqwah", label: "ตารางวา"},
+            {value: "sqngan", label: "งาน"},
+            {value: "sqrai", label: "ไร่"}
         ],
         id: "measure-result-panel",
         uom: {
