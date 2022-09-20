@@ -43,7 +43,8 @@ class BaseMap extends React.Component {
         plugins: PropTypes.any,
         tools: PropTypes.array,
         getLayerProps: PropTypes.func,
-        env: PropTypes.array
+        env: PropTypes.array,
+        feature_highlight: PropTypes.object
     };
 
     static defaultProps = {
@@ -78,6 +79,24 @@ class BaseMap extends React.Component {
         };
     };
 
+    getHighlightLayer = (projection, index, env) => { 
+        const plugins = this.props.plugins; 
+        if (this.props.feature_highlight.mapSync && this.props.feature_highlight.idMapSync !== this.props.id) { 
+            return null; 
+        } 
+        return (<plugins.Layer type="vector" srs={projection} position={index} key="highlight" options={{name: "highlight"}} env={env}> 
+            {this.props.feature_highlight.feature_select.map( (feature) => { 
+                return (<plugins.Feature 
+                    msId={feature.id} 
+                    key={feature.id} 
+                    crs={projection} 
+                    type={feature.type} 
+                    style={feature.style || null } 
+                    geometry={feature.geometry}/>); 
+            })} 
+        </plugins.Layer>); 
+    };
+
     renderLayers = () => {
         const projection = this.props.map && this.props.map.projection || "EPSG:3857";
         const { plugins } = this.props;
@@ -95,7 +114,7 @@ class BaseMap extends React.Component {
                     {this.renderLayerContent(layer, projection)}
                 </Layer>
             );
-        });
+        }).concat(this.props.feature_highlight.feature_select && this.props.feature_highlight.feature_select.length && this.getHighlightLayer(projection, this.props.layers.length, this.props.env) || []);
     };
 
     renderLayerContent = (layer, projection) => {

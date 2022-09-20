@@ -49,6 +49,7 @@ export default pure(({
     onLayoutChange = () => { },
     language,
     env,
+    updateWidgetMapDependenices = () => {},
     ...actions
 } = {}) => {
     // checking if this widget appears among other dependenciesMap of other widgets (i.e. it is a parent table)
@@ -118,7 +119,8 @@ export default pure(({
                 onDelete={() => deleteWidget(w)}
                 onEdit={() => editWidget(w)}
                 language={language}
-                env={env} /></div>))
+                env={env}
+                updateWidgetMap = {(...args) => updateWidgetMapDependenices(w.id, ...args)} /></div>))
         }
     </ResponsiveReactGridLayout>);
 });

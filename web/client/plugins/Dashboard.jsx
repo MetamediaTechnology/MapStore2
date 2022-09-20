@@ -22,7 +22,8 @@ import {
     exportImage,
     selectWidget,
     updateWidgetProperty,
-    toggleMaximize
+    toggleMaximize,
+    updateWidgetMapDependenices
 } from '../actions/widgets';
 import Dashboard from '../components/dashboard/Dashboard';
 import widgetsReducers from '../reducers/widgets';
@@ -88,7 +89,8 @@ const WidgetsView = compose(
             deleteWidget,
             onWidgetSelected: selectWidget,
             onLayoutChange: changeLayout,
-            toggleMaximize
+            toggleMaximize,
+            updateWidgetMapDependenices
         }
     ),
     withProps(() => ({

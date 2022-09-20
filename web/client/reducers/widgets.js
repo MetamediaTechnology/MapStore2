@@ -26,15 +26,18 @@ import {
     TOGGLE_MAXIMIZE,
     TOGGLE_COLLAPSE_ALL,
     TOGGLE_TRAY,
-    toggleCollapse
+    toggleCollapse,
+    UPDATE_WIDGET_MAP_DEPENDENCIES
 } from '../actions/widgets';
 
 import { MAP_CONFIG_LOADED } from '../actions/config';
 import { DASHBOARD_LOADED, DASHBOARD_RESET } from '../actions/dashboard';
 import assign from 'object-assign';
 import set from 'lodash/fp/set';
-import { get, find, omit, mapValues, castArray } from 'lodash';
+import { get, find, omit, mapValues, castArray, isEqual } from 'lodash';
 import { arrayUpsert, compose, arrayDelete } from '../utils/ImmutableUtils';
+import MapUtils from "../utils/MapUtils"; 
+import CoordinatesUtils from "../utils/CoordinatesUtils";
 
 const emptyState = {
     dependencies: {
@@ -51,6 +54,11 @@ const emptyState = {
         settings: {
             step: 0
         }
+    }, 
+    feature_highlight: { 
+        mapSync: false, 
+        idMapSync: "", 
+        feature_select: [] 
     }
 };
 
@@ -324,6 +332,60 @@ function widgetsReducer(state = emptyState, action) {
     }
     case TOGGLE_TRAY: {
         return set('tray', action.value, state);
+    }
+    case UPDATE_WIDGET_MAP_DEPENDENCIES: { 
+        let mapIdTotalChange = []; 
+        let widgetSelect = find(get(state, `containers[${action.target}].widgets`), { 
+            id: action.id 
+        }); 
+     
+        if (widgetSelect.mapSync === true) { 
+            let idMapDependencies = widgetSelect.dependenciesMap.mapSync.replace("widgets[", "").replace("].mapSync", ""); 
+            mapIdTotalChange.push(idMapDependencies); 
+        } else if (widgetSelect.mapSync === false) { 
+            let idMapDependencies = (state.containers.floating.widgets).filter(s => s.mapSync === false && s.widgetType === 'map').map(({id}) => id); 
+            mapIdTotalChange =  idMapDependencies; 
+        } 
+     
+        let stateChanges = state; 
+        mapIdTotalChange.forEach((value) => { 
+            let oldWidgetMap = find(get(state, `containers[${action.target}].widgets`), {id: value}); 
+            let bounds = action.value.bbox.bounds; 
+            let extent = [bounds.minx, bounds.miny, bounds.maxx, bounds.maxy]; 
+            let mapBBounds = CoordinatesUtils.reprojectBbox(extent, action.value.bbox.crs, oldWidgetMap.map.projection || "EPSG:4326"); 
+            let newZoom = MapUtils.getZoomForExtent(mapBBounds, oldWidgetMap.map.size, 0, 21); 
+     
+            action.value.bbox.bound = CoordinatesUtils.createBBox(mapBBounds[0], mapBBounds[1], mapBBounds[2], mapBBounds[3]); 
+            action.value.zoom =  newZoom > 1 ? newZoom - 1 : 1; 
+     
+            // update state 
+            stateChanges = arrayUpsert(`containers[${action.target}].widgets`, 
+                set( 
+                    action.key, 
+                    assign({}, oldWidgetMap[action.key], action.value), 
+                    oldWidgetMap 
+                ), { 
+                    id: value 
+                }, stateChanges); 
+        }); 
+     
+        let feature_highlight_default = { 
+            mapSync: false, 
+            idMapSync: "", 
+            feature_select: [] 
+        }; 
+        if (!isEqual(state.feature_highlight.feature_select, action.arr_value)) { 
+            feature_highlight_default = { 
+                mapSync: widgetSelect.mapSync, 
+                idMapSync: widgetSelect.mapSync ? mapIdTotalChange[0] : "", 
+                feature_select: action.arr_value 
+            }; 
+            stateChanges = set('feature_highlight', feature_highlight_default, stateChanges); 
+        } else { 
+            stateChanges.feature_highlight = feature_highlight_default; 
+        } 
+     
+        return stateChanges; 
     }
     default:
         return state;
