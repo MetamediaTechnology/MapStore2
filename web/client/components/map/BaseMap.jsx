@@ -61,7 +61,8 @@ class BaseMap extends React.Component {
             onLayerLoading: () => {},
             onLayerError: () => {}
         },
-        env: []
+        env: [],
+        feature_highlight: {}
     };
 
     getTool = (tool) => {
