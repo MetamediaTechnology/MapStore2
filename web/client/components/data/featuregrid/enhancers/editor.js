@@ -182,6 +182,7 @@ const featuresToGrid = compose(
                 onRowsSelected = () => {},
                 onRowsDeselected = () => {},
                 onRowsToggled = () => {},
+                onGridSelect = () => {},
                 ...gridEvents} = getGridEvents(props.gridEvents, props.rowGetter, props.describeFeatureType, props.actionOpts, props.columns);
 
             // setup gridOpts setting app selection events bind
@@ -206,6 +207,25 @@ const featuresToGrid = compose(
             gridEvents.onRowClick = (rowIdx, row) => {
                 if (rowIdx >= 0) {
                     onRowsToggled([{rowIdx, row}]);
+
+                    // check
+                    let indexSub = -1; 
+                    let rowIdName = row.id; 
+                    for (let i = (rowIdName.length) - 1; i >= 0; i--) { 
+                        if (rowIdName[i] === '.') { 
+                            indexSub = i; 
+                            break; 
+                        } 
+                    } 
+                    let typeName = ''; 
+                    let featureId = ''; 
+                    if (indexSub !== -1) { 
+                        typeName = rowIdName.substring(0, indexSub); 
+                        featureId = rowIdName.substring(indexSub + 1); 
+                    } 
+                    if (typeName !== '' && featureId !== '') { 
+                        onGridSelect({typeName: typeName, featureId: featureId}); 
+                    }
                 }
             };
             return {

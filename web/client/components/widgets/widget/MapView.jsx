@@ -15,6 +15,7 @@ import onMapViewChanges from '../../map/enhancers/onMapViewChanges';
 import {withOnClick, withPopupSupport} from '../../common/enhancers/withIdentifyPopup';
 import BaseMap from '../../map/BaseMap';
 import withScalesDenominators from "../../../components/map/enhancers/withScalesDenominators";
+import withFeatureHighlights from '../../map/enhancers/withFeatureHighlights';
 
 export default compose(
     onMapViewChanges,
@@ -25,5 +26,6 @@ export default compose(
     withPopupSupport,
     withOnClick,
     getProjectionDefs,
-    handlingUnsupportedProjection
+    handlingUnsupportedProjection,
+    withFeatureHighlights
 )(BaseMap);

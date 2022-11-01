@@ -164,3 +164,5 @@ export const widgetsConfig = createStructuredSelector({
     layouts: getFloatingWidgetsLayout,
     catalogs: dashboardServicesSelector
 });
+
+export const widgetFeatureHightlights = state => get(state, "widgets.feature_highlight");

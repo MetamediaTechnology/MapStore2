@@ -38,6 +38,7 @@ export const TOGGLE_COLLAPSE = "WIDGET:TOGGLE_COLLAPSE";
 export const TOGGLE_COLLAPSE_ALL = "WIDGET:TOGGLE_COLLAPSE_ALL";
 export const TOGGLE_MAXIMIZE = "WIDGET:TOGGLE_MAXIMIZE";
 export const TOGGLE_TRAY = "WIDGET:TOGGLE_TRAY";
+export const UPDATE_WIDGET_MAP_DEPENDENCIES = 'WIDGET:UPDATE_WIDGET_MAP_DEPENDENCIES';
 
 /**
  * Intent to create a new Widgets
@@ -299,3 +300,14 @@ export const toggleMaximize = (widget, target = DEFAULT_TARGET) => ({
  * @param {boolean} value true the tray is present, false if it is not present
  */
 export const toggleTray = value => ({ type: TOGGLE_TRAY, value});
+
+export const updateWidgetMapDependenices = (id, key, value, feature_select, target = DEFAULT_TARGET ) => { 
+    return ({ 
+        type: UPDATE_WIDGET_MAP_DEPENDENCIES, 
+        id, 
+        target, 
+        key, 
+        value, 
+        feature_select 
+    }); 
+};

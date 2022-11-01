@@ -443,6 +443,28 @@ const property = {
                 contrastEnhancement: value.contrastEnhancement
             };
         }
+    }),
+    anchor: ({ key = 'anchor', label = ''}) => ({ 
+        key, 
+        type: 'toolbar', 
+        label, 
+        config: { 
+            options: [{ 
+                labelId: 'styleeditor.leftAnchorPointLabel', 
+                value: 'left' 
+            }, { 
+                labelId: 'styleeditor.centerAnchorPointLabel', 
+                value: 'center' 
+            }, { 
+                labelId: 'styleeditor.rightAnchorPointLabel', 
+                value: 'right' 
+            }] 
+        }, 
+        getValue: (value) => { 
+            return { 
+                [key]: value 
+            }; 
+        } 
     })
 };
 
