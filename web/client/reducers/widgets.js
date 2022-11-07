@@ -349,14 +349,23 @@ function widgetsReducer(state = emptyState, action) {
      
         let stateChanges = state; 
         mapIdTotalChange.forEach((value) => { 
-            let oldWidgetMap = find(get(state, `containers[${action.target}].widgets`), {id: value}); 
+            let oldWidgetMap = find(get(state, `containers[${action.target}].widgets`), {id: value});
+            console.log(oldWidgetMap);
+            console.log(action);
             let bounds = action.value.bbox.bounds; 
             let extent = [bounds.minx, bounds.miny, bounds.maxx, bounds.maxy]; 
             let mapBBounds = CoordinatesUtils.reprojectBbox(extent, action.value.bbox.crs, oldWidgetMap.map.projection || "EPSG:4326"); 
             let newZoom = MapUtils.getZoomForExtent(mapBBounds, oldWidgetMap.map.size, 0, 21); 
      
             action.value.bbox.bound = CoordinatesUtils.createBBox(mapBBounds[0], mapBBounds[1], mapBBounds[2], mapBBounds[3]); 
-            action.value.zoom =  newZoom > 1 ? newZoom - 1 : 1; 
+            action.value.zoom =  newZoom > 1 ? newZoom - 1 : 1;
+
+            if (action.feature_select.length > 0) {
+                let feature_type = action.feature_select[0].geometry.type;
+                if (feature_type.toUpperCase() === "POINT") {
+                    action.value.zoom =  18;
+                }
+            }
      
             // update state 
             stateChanges = arrayUpsert(`containers[${action.target}].widgets`, 
