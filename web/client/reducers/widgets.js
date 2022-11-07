@@ -350,8 +350,6 @@ function widgetsReducer(state = emptyState, action) {
         let stateChanges = state; 
         mapIdTotalChange.forEach((value) => { 
             let oldWidgetMap = find(get(state, `containers[${action.target}].widgets`), {id: value});
-            console.log(oldWidgetMap);
-            console.log(action);
             let bounds = action.value.bbox.bounds; 
             let extent = [bounds.minx, bounds.miny, bounds.maxx, bounds.maxy]; 
             let mapBBounds = CoordinatesUtils.reprojectBbox(extent, action.value.bbox.crs, oldWidgetMap.map.projection || "EPSG:4326"); 
@@ -383,11 +381,11 @@ function widgetsReducer(state = emptyState, action) {
             idMapSync: "", 
             feature_select: [] 
         }; 
-        if (!isEqual(state.feature_highlight.feature_select, action.arr_value)) { 
+        if (!isEqual(state.feature_highlight.feature_select, action.feature_select)) { 
             feature_highlight_default = { 
                 mapSync: widgetSelect.mapSync, 
                 idMapSync: widgetSelect.mapSync ? mapIdTotalChange[0] : "", 
-                feature_select: action.arr_value 
+                feature_select: action.feature_select 
             }; 
             stateChanges = set('feature_highlight', feature_highlight_default, stateChanges); 
         } else { 
