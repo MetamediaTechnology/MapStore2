@@ -231,6 +231,18 @@ class MeasureComponent extends React.Component {
                         <Col xs={6}>
                             <DropdownList
                                 disabled={disabled}
+                                value={this.props.uom.length.label}
+                                onChange={(value) => {
+                                    this.props.onChangeUom("length", value, this.props.uom);
+                                }}
+                                data={this.props.uomLengthValues}
+                                textField="label"
+                                valueField="value"
+                            />
+                        </Col>
+                        <Col xs={6}>
+                            <DropdownList
+                                disabled={disabled}
                                 value={this.props.uom.area.label}
                                 onChange={(value) => {
                                     this.props.onChangeUom("area", value, this.props.uom);
