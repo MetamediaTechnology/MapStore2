@@ -50,6 +50,7 @@ class MeasureComponent extends React.Component {
         }),
         toggleMeasure: PropTypes.func,
         measurement: PropTypes.object,
+        areaCircleEnabled: PropTypes.bool,
         lineMeasureEnabled: PropTypes.bool,
         lineMeasureValueEnabled: PropTypes.bool,
         areaMeasureEnabled: PropTypes.bool,
@@ -62,6 +63,7 @@ class MeasureComponent extends React.Component {
         lineGlyph: PropTypes.string,
         areaGlyph: PropTypes.string,
         bearingGlyph: PropTypes.string,
+        circleGlyph: PropTypes.string,
         withReset: PropTypes.bool,
         showButtonsLabels: PropTypes.bool,
         inlineGlyph: PropTypes.bool,
@@ -112,7 +114,7 @@ class MeasureComponent extends React.Component {
             {value: "mi", label: "mi"},
             {value: "nm", label: "nm"},
             // THAI Measure metric
-            {value: "sqwah", label: "วา"},
+            {value: "sqwah", label: "วา"}
         ],
         uomAreaValues: [
             {value: "sqft", label: "ft²"},
@@ -145,6 +147,7 @@ class MeasureComponent extends React.Component {
         lineGlyph: "1-measure-length",
         areaGlyph: "1-measure-area",
         bearingGlyph: "1-measure-bearing",
+        circleGlyph: '1-circle-add',
         showButtonsLabels: true,
         lengthLabel: <Message msgId="measureComponent.lengthLabel"/>,
         areaLabel: <Message msgId="measureComponent.areaLabel"/>,
@@ -253,6 +256,19 @@ class MeasureComponent extends React.Component {
                         </Col>
                     </FormGroup>
                 </Row>}
+                {this.props.areaCircleEnabled && <Row>
+                    <Col xs={12} md={12}>
+                        <DropdownList
+                            disabled={disabled}
+                            value={this.props.uom.area.label}
+                            onChange={(value) => {
+                                this.props.onChangeUom("area", value, this.props.uom);
+                            }}
+                            data={this.props.uomAreaValues}
+                            textField="label"
+                            valueField="value"/>
+                    </Col>
+                </Row>}
                 {this.props.bearingMeasureEnabled && this.props.bearingMeasureValueEnabled && <Row>
                     <FormGroup style={{display: 'flex', alignItems: 'center', minHeight: 34}}>
                         <Col xs={6}>
@@ -338,6 +354,14 @@ class MeasureComponent extends React.Component {
                                             disabled: !this.props.areaMeasureEnabled && isFeatureInvalid
                                         },
                                         {
+                                            active: !!this.props.areaCircleEnabled,
+                                            bsStyle: this.props.areaCircleEnabled ? 'success' : 'primary',
+                                            glyph: this.props.circleGlyph,
+                                            tooltip: this.renderText(this.props.inlineGlyph && this.props.areaGlyph, "measureComponent.MeasureArea"),
+                                            onClick: () => this.onGeomClick('Circle'),
+                                            disabled: !this.props.areaCircleEnabled && isFeatureInvalid
+                                        },
+                                        {
                                             visible: !this.props.disableBearing,
                                             active: !!this.props.bearingMeasureEnabled,
                                             bsStyle: this.props.bearingMeasureEnabled ? 'success' : 'primary',
@@ -373,7 +397,7 @@ class MeasureComponent extends React.Component {
                                         {
                                             glyph: 'ext-json',
                                             disabled: toolbarDisabled,
-                                            visible: !!(this.props.bearingMeasureEnabled || this.props.areaMeasureEnabled || this.props.lineMeasureEnabled) && this.props.showExportToGeoJSON,
+                                            visible: !!(this.props.bearingMeasureEnabled || this.props.areaMeasureEnabled || this.props.areaCircleEnabled || this.props.lineMeasureEnabled) && this.props.showExportToGeoJSON,
                                             tooltip: <Message msgId="measureComponent.exportToGeoJSON"/>,
                                             onClick: () => {
                                                 download(JSON.stringify(convertMeasuresToGeoJSON(
@@ -387,7 +411,7 @@ class MeasureComponent extends React.Component {
                                         },
                                         {
                                             glyph: '1-layer',
-                                            visible: !!(this.props.bearingMeasureEnabled || this.props.areaMeasureEnabled || this.props.lineMeasureEnabled) && this.props.showAddAsLayer,
+                                            visible: !!(this.props.bearingMeasureEnabled || this.props.areaMeasureEnabled || this.props.areaCircleEnabled ||  this.props.lineMeasureEnabled) && this.props.showAddAsLayer,
                                             disabled: toolbarDisabled || exportToAnnotation,
                                             tooltip: <Message msgId="measureComponent.addAsLayer"/>,
                                             onClick: () => this.props.onAddAsLayer(
@@ -421,7 +445,7 @@ class MeasureComponent extends React.Component {
                     </div>
                 }>
                 {this.props.showCoordinateEditor && (<Grid fluid style={{maxHeight: 400, borderTop: '1px solid #ddd'}}>
-                    {(this.props.bearingMeasureEnabled || this.props.areaMeasureEnabled || this.props.lineMeasureEnabled)
+                    {(this.props.bearingMeasureEnabled || this.props.areaMeasureEnabled || this.props.lineMeasureEnabled || this.props.areaCircleEnabled)
                         ? <Row style={ this.props.isCoordinateEditorEnabled ? {} : {pointerEvents: "none", opacity: 0.5}}>
                             <CoordinatesEditor
                                 key="measureEditor"
