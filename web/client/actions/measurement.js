@@ -146,6 +146,7 @@ export function changeMeasurementState(measureState) {
         pointMeasureEnabled: measureState.pointMeasureEnabled,
         lineMeasureEnabled: measureState.lineMeasureEnabled,
         areaMeasureEnabled: measureState.areaMeasureEnabled,
+        areaCircleEnabled: measureState.areaCircleEnabled,
         bearingMeasureEnabled: measureState.bearingMeasureEnabled,
         geomType: measureState.geomType,
         values: measureState.values,

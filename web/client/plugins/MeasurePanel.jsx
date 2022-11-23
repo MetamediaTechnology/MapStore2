@@ -19,6 +19,7 @@ const selector = (state) => {
         measurement: state.measurement || {},
         lineMeasureEnabled: state.measurement && state.measurement.lineMeasureEnabled || false,
         areaMeasureEnabled: state.measurement && state.measurement.areaMeasureEnabled || false,
+        areaCircleEnabled: state.measurement && state.measurement.areaCircleEnabled || false,
         bearingMeasureEnabled: state.measurement && state.measurement.bearingMeasureEnabled || false
     };
 };

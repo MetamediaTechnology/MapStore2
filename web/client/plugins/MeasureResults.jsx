@@ -18,6 +18,7 @@ class MeasureComponent extends React.Component {
     static propTypes = {
         lineMeasureEnabled: PropTypes.bool,
         areaMeasureEnabled: PropTypes.bool,
+        areaCircleEnabled: PropTypes.bool,
         bearingMeasureEnabled: PropTypes.bool,
         toggleMeasure: PropTypes.func
     };
@@ -26,6 +27,7 @@ class MeasureComponent extends React.Component {
         const newMeasureState = {
             lineMeasureEnabled: false,
             areaMeasureEnabled: false,
+            areaCircleEnabled: false,
             bearingMeasureEnabled: false,
             geomType: null,
             // reset old measurements
@@ -42,7 +44,7 @@ class MeasureComponent extends React.Component {
             areaLabel: <Message msgId="measureComponent.areaLabel"/>,
             bearingLabel: <Message msgId="measureComponent.bearingLabel"/>
         };
-        return <MeasureDialog showButtons={false} onClose={this.onModalHiding} show={this.props.lineMeasureEnabled || this.props.areaMeasureEnabled || this.props.bearingMeasureEnabled} {...labels} {...this.props}/>;
+        return <MeasureDialog showButtons={false} onClose={this.onModalHiding} show={this.props.lineMeasureEnabled || this.props.areaMeasureEnabled || this.props.areaCircleEnabled || this.props.bearingMeasureEnabled} {...labels} {...this.props}/>;
     }
 }
 

@@ -46,6 +46,7 @@ const selector = (state) => {
         lineMeasureValueEnabled: !isOpenlayers(state),
         areaMeasureEnabled: state.measurement && state.measurement.areaMeasureEnabled,
         areaMeasureValueEnabled: !isOpenlayers(state),
+        areaCircleEnabled: state.measurement && state.measurement.areaCircleEnabled,
         bearingMeasureEnabled: state.measurement && state.measurement.bearingMeasureEnabled,
         showLengthAndBearingLabel: state.measurement && state.measurement.showLengthAndBearingLabel,
         bearingMeasureValueEnabled: !isOpenlayers(state),

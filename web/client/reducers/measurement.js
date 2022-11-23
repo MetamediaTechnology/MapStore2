@@ -33,6 +33,7 @@ const defaultState = {
     lineMeasureEnabled: true,
     geomType: "LineString",
     areaMeasureEnabled: false,
+    areaCircleEnabled: false,
     bearingMeasureEnabled: false,
     customStartEndPoint: {
         startPointOptions: {
@@ -61,6 +62,7 @@ function measurement(state = defaultState, action) {
         return assign({}, state, {
             lineMeasureEnabled: action.geomType !== state.geomType && action.geomType === 'LineString',
             areaMeasureEnabled: action.geomType !== state.geomType && action.geomType === 'Polygon',
+            areaCircleEnabled: action.geomType !== state.geomType && action.geomType === 'Circle',
             bearingMeasureEnabled: action.geomType !== state.geomType && action.geomType === 'Bearing',
             geomType: action.geomType === state.geomType ? null : action.geomType,
             features: action.geomType === null ? [] : state.features,
@@ -87,6 +89,7 @@ function measurement(state = defaultState, action) {
         return assign({}, state, {
             lineMeasureEnabled: action.lineMeasureEnabled,
             areaMeasureEnabled: action.areaMeasureEnabled,
+            areaCircleEnabled: action.areaCircleEnabled,
             bearingMeasureEnabled: action.bearingMeasureEnabled,
             geomType: action.geomType,
             values: action.values,
@@ -189,6 +192,7 @@ function measurement(state = defaultState, action) {
                 bearing: 0,
                 lineMeasureEnabled: false,
                 areaMeasureEnabled: false,
+                areaCircleEnabled: false,
                 bearingMeasureEnabled: false,
                 feature: { properties: {
                     disabled: true
@@ -202,6 +206,7 @@ function measurement(state = defaultState, action) {
                 geomType: "",
                 lineMeasureEnabled: false,
                 areaMeasureEnabled: false,
+                areaCircleEnabled: false,
                 bearingMeasureEnabled: false
             };
         }
@@ -214,6 +219,7 @@ function measurement(state = defaultState, action) {
                 geomType: "",
                 lineMeasureEnabled: false,
                 areaMeasureEnabled: false,
+                areaCircleEnabled: false,
                 bearingMeasureEnabled: false
             };
         }
@@ -227,6 +233,7 @@ function measurement(state = defaultState, action) {
             bearing: 0,
             lineMeasureEnabled: false,
             areaMeasureEnabled: false,
+            areaCircleEnabled: false,
             bearingMeasureEnabled: false,
             feature: { properties: {
                 disabled: true
