@@ -19,13 +19,14 @@ import {
     transformLineToArcs,
     midpoint
 } from '../../../utils/CoordinatesUtils';
+import circle from "@turf/circle";
 import {convertUom, getFormattedBearingValue, validateCoord} from '../../../utils/MeasureUtils';
 import {set} from '../../../utils/ImmutableUtils';
 import {startEndPolylineStyle} from './VectorStyle';
 import {getMessageById} from '../../../utils/LocaleUtils';
 import {createOLGeometry} from '../../../utils/openlayers/DrawUtils';
 
-import {Polygon, LineString} from 'ol/geom';
+import {Polygon, LineString, Circle} from 'ol/geom';
 import Overlay from 'ol/Overlay';
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
@@ -36,6 +37,7 @@ import Draw from 'ol/interaction/Draw';
 import GeoJSON from 'ol/format/GeoJSON';
 import {unByKey} from 'ol/Observable';
 import {getArea} from 'ol/sphere';
+import { toLonLat } from 'ol/proj';
 
 const getProjectionCode = (olMap) => {
     return olMap.getView().getProjection().getCode();
@@ -107,7 +109,7 @@ export default class MeasurementSupport extends React.Component {
              * because the old geomType is not changed (it was already defined as default)
              * and the measure tool is getting enabled
             */
-            (newProps.measurement.geomType && (newProps.measurement.lineMeasureEnabled || newProps.measurement.areaMeasureEnabled || newProps.measurement.bearingMeasureEnabled) && !this.props.enabled && newProps.enabled) ) {
+            (newProps.measurement.geomType && (newProps.measurement.lineMeasureEnabled || newProps.measurement.areaMeasureEnabled || newProps.measurement.areaCircleEnabled || newProps.measurement.bearingMeasureEnabled) && !this.props.enabled && newProps.enabled) ) {
             this.restoreDrawState();
             this.addDrawInteraction(newProps);
         }
@@ -357,7 +359,8 @@ export default class MeasurementSupport extends React.Component {
                     (props.measurement.pointMeasureEnabled ? 'point' :
                         props.measurement.lineMeasureEnabled ? 'length' :
                             props.measurement.areaMeasureEnabled ? 'area' :
-                                props.measurement.bearingMeasureEnabled ? 'bearing' : undefined)
+                                props.measurement.areaCircleEnabled ? 'circle' :
+                                    props.measurement.bearingMeasureEnabled ? 'bearing' : undefined)
             }, ...(geomType === 'Polygon' ? [{
                 value: calculateDistance(coords, props.measurement.lengthFormula),
                 formattedValue: this.formatLengthValue(calculateDistance(coords, props.measurement.lengthFormula), props.uom, false),
@@ -725,6 +728,19 @@ export default class MeasurementSupport extends React.Component {
                         value: length,
                         type: this.props.measurement.geomType === 'Bearing' ? 'bearing' : 'length'
                     };
+                } else if (geom instanceof Circle) {
+
+                    const circleRadius = geom.getRadius();
+                    outputValue = {
+                        value: Math.PI * (Math.pow(circleRadius, 2)),
+                        type: 'area'
+                    };
+                    output = this.formatAreaValue(outputValue.value, this.props.uom);
+                    this.tooltipCoord = geom.getCenter();
+
+                    // Do something
+                } else {
+                    // Do something
                 }
                 if (!this.props.measurement.disableLabels) {
                     last(this.measureTooltipElements).innerHTML = output;
@@ -774,25 +790,53 @@ export default class MeasurementSupport extends React.Component {
 
             let newFeature = reprojectGeoJson(geojsonFormat.writeFeatureObject(evt.feature.clone()), getProjectionCode(this.props.map), "EPSG:4326");
             newFeature.properties = newFeature.properties || {};
-            newFeature.properties.values = [{
-                value: (getMeasureValue[this.props.measurement.geomType] || (() => null))(),
-                formattedValue: (getFormattedValue[this.props.measurement.geomType] || (() => null))(),
-                position: pointObjectToArray(reproject(this.props.measurement.geomType === 'Polygon' ?
-                    geometry.getInteriorPoint().getCoordinates() :
-                    last(coords),
-                getProjectionCode(this.props.map), 'EPSG:4326')),
-                type: this.props.measurement.pointMeasureEnabled ? 'point' :
-                    this.props.measurement.lineMeasureEnabled ? 'length' :
-                        this.props.measurement.areaMeasureEnabled ? 'area' :
-                            this.props.measurement.bearingMeasureEnabled ? 'bearing' : undefined
-            }, ...(this.props.measurement.geomType === 'Polygon' ? [{
-                value: (this.outputValues[this.measureTooltipElements.length - 2] || {}).value || 0,
-                formattedValue: this.formatLengthValue(
-                    (this.outputValues[this.measureTooltipElements.length - 2] || {}).value || 0, this.props.uom, false),
-                position: pointObjectToArray(reproject(last(coords[0]), getProjectionCode(this.props.map), 'EPSG:4326')),
-                uom: this.props.uom,
-                type: 'length'
-            }] : [])];
+            if (this.props.measurement.geomType === 'Circle') {
+                // Do something
+                let _circle = geometry;
+                const _radius = _circle.getRadius();
+                const _center = _circle.getCenter();
+                const _centerLatLon = toLonLat(_center, 'EPSG:3857');
+                const _geometry = circle(_centerLatLon, _radius / 1000,
+                    {
+                        steps: 100,
+                        units: "kilometers"
+                    }
+                ).geometry;
+                newFeature = {
+                    type: "Feature",
+                    geometry: _geometry,
+                    properties: {
+                        values: [
+                            {
+                                value: Math.PI * (Math.pow(_radius, 2)),
+                                formattedValue: `${Math.PI * (Math.pow(_radius, 2))} m²`,
+                                position: _centerLatLon,
+                                type: "circle"
+                            }
+                        ]
+                    }
+                };
+            } else {
+                newFeature.properties.values = [{
+                    value: (getMeasureValue[this.props.measurement.geomType] || (() => null))(),
+                    formattedValue: (getFormattedValue[this.props.measurement.geomType] || (() => null))(),
+                    position: pointObjectToArray(reproject(this.props.measurement.geomType === 'Polygon' ?
+                        geometry.getInteriorPoint().getCoordinates() :
+                        last(coords),
+                    getProjectionCode(this.props.map), 'EPSG:4326')),
+                    type: this.props.measurement.pointMeasureEnabled ? 'point' :
+                        this.props.measurement.lineMeasureEnabled ? 'length' :
+                            this.props.measurement.areaMeasureEnabled ? 'area' :
+                                this.props.measurement.bearingMeasureEnabled ? 'bearing' : undefined
+                }, ...(this.props.measurement.geomType === 'Polygon' ? [{
+                    value: (this.outputValues[this.measureTooltipElements.length - 2] || {}).value || 0,
+                    formattedValue: this.formatLengthValue(
+                        (this.outputValues[this.measureTooltipElements.length - 2] || {}).value || 0, this.props.uom, false),
+                    position: pointObjectToArray(reproject(last(coords[0]), getProjectionCode(this.props.map), 'EPSG:4326')),
+                    uom: this.props.uom,
+                    type: 'length'
+                }] : [])];
+            }
 
 
             let clonedNewFeature = {...newFeature};
@@ -818,7 +862,7 @@ export default class MeasurementSupport extends React.Component {
                 }
 
                 clonedNewFeature = set("geometry.coordinates", newCoords, clonedNewFeature);
-            } else if (!this.props.measurement.disableLabels && this.props.measurement.areaMeasureEnabled) {
+            } else if (!this.props.measurement.disableLabels && this.props.measurement.areaMeasureEnabled && this.props.measurement.areaCircleEnabled) {
                 // the one before the last is a dummy
                 this.textLabels.splice(this.segmentOverlays.length - 2, 1);
                 this.props.map.removeOverlay(this.segmentOverlays[this.segmentOverlays.length - 2]);
