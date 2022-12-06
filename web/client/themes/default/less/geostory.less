@@ -9,6 +9,10 @@
 // **************
 // Theme
 // **************
+// Custom font
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;1,400;1,500&display=swap');
 #ms-components-theme(@theme-vars) {
     .ms-geostory-builder {
         .ms-geostory-builder-header {
@@ -185,7 +189,7 @@
 @ms-story-active-button-text: @ms-success-contrast;
 @ms-story-active-button-bg: lighten(@ms-success, 15%);
 
-@ms-story-font-size-base: 21px;
+@ms-story-font-size-base: 14px;
 @ms-story-font-size-large: ceil(@ms-story-font-size-base * 1.5);
 @ms-story-font-size-small: ceil(@ms-story-font-size-base* 0.75);
 @ms-story-font-size-h1: floor((@ms-story-font-size-base * 2.0));
@@ -415,7 +419,7 @@
     }
 }
 .ms-geostory-map-editor{
-    .ms-geostory-map-editor-header {
+    .ms-geostory-map-editor-header() {
         padding-bottom: 8px;
         margin-bottom: 5px;
         border-bottom: 1px solid @ms-story-bg-grey;
