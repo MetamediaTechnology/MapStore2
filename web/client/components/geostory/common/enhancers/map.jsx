@@ -103,14 +103,9 @@ const ResetButton = (props) => (<ConfirmButton
 />);
 
 export const withToolbar = compose(
-    withProps(({disableReset, onReset, toggleAdvancedEditing = () => {}}) => ({
+    withProps(({disableReset, onReset = () => {}}) => ({
         buttons: [{
             renderButton: <ResetButton disabled={disableReset} onClick={onReset}/>
-        },
-        {
-            glyph: "pencil",
-            tooltipId: "geostory.contentToolbar.advancedMapEditor",
-            onClick: toggleAdvancedEditing
         }]
     })),
     withNodeSelection,      // Node selection
