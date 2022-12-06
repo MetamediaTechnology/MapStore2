@@ -14,7 +14,7 @@ import Media, { typesMap } from '../../media';
 import { lists, getClassNameFromProps, Modes } from '../../../../utils/GeoStoryUtils';
 import DefaultContentToolbar from '../../contents/ContentToolbar';
 import { Portal } from 'react-overlays';
-import pattern from './patterns/grid.svg';
+// import pattern from './patterns/grid.svg';
 import { SectionTypes, getThemeStyleFromProps } from './../../../../utils/GeoStoryUtils';
 
 /**
@@ -61,11 +61,11 @@ class Background extends Component {
         height: 0,
         size: 'full',
         width: 0,
-        style: {},
-        backgroundPlaceholder: {
-            background: `url(${pattern})`,
-            backgroundSize: '256px auto'
-        }
+        style: {}
+        // backgroundPlaceholder: {
+        //     background: `url(${pattern})`,
+        //     backgroundSize: '256px auto'
+        // }
     };
 
     render() {
