@@ -421,7 +421,10 @@ export const toPlotly = (props) => {
             width,
             ...(type === 'pie' && isModeBarVisible && {legend: {x: 1.05, y: 0.5}}), // Position legend to right and centered vertically
             hovermode: 'x unified',
-            uirevision: true
+            uirevision: true,
+            yaxis: {
+                title: yAxisLabel || ''
+            }
         },
         data: series.map(({ dataKey: yDataKey }) => {
             let allData = getData({ ...props, xDataKey, yDataKey, classificationAttr, type, yAxisLabel, autoColorOptions, customColorEnabled, classficationType });
