@@ -13,8 +13,8 @@ import {backgroundPropWithHandler} from './enhancers/immersiveBackgroundManager'
 import ContainerDimensions from 'react-container-dimensions';
 import AddBar from '../../common/AddBar';
 import { SectionTypes, ContentTypes, Modes, MediaTypes, SectionTemplates } from '../../../../utils/GeoStoryUtils';
-import titlePattern from './patterns/dots.png';
-import coverPattern from './patterns/grid.svg';
+// import titlePattern from './patterns/dots.png';
+// import coverPattern from './patterns/grid.svg';
 import {get} from 'lodash';
 /**
  * Paragraph Section Type.
@@ -90,10 +90,6 @@ export default compose(
                         remove={remove}
                         width={viewWidth}
                         sectionType={sectionType}
-                        backgroundPlaceholder={{
-                            background: `url(${cover ? coverPattern : titlePattern })`,
-                            backgroundSize: `${cover ? 64 : 600 }px auto`
-                        }}
                         tools={{
                             [MediaTypes.IMAGE]: ['editMedia', 'cover', 'fit', 'size', 'align', 'theme'],
                             [MediaTypes.MAP]: ['editMedia', 'cover', 'editMap', 'size', 'align', 'theme'],
