@@ -141,9 +141,10 @@ const toolButtons = {
         disabled: editMap || markerDisabled,
         onClick: marker
     }),
-    closeDraw: ({editMap = false, bsStyle = 'default', update = () => {}, onEnableDraw = () => {}}) => ({
+    closeDraw: ({editMap = false, bsStyle = 'danger', update = () => {}, onEnableDraw = () => {}}) => ({
         glyph: '1-close',
         visible: true,
+        "data-button": "close-draw",
         tooltipId: "geostory.contentToolbar.closeMapEditing",
         bsStyle,
         disabled: !editMap,
