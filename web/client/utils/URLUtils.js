@@ -93,6 +93,16 @@ export const isValidURL = (url, regexp = /^(http(s{0,1}):\/\/)+?[\w.-]+(?:\.[\w\
 };
 
 /**
+ * Validator of URL
+ * @param {string} url - url to validate
+ * @param {RegExp} regexp - optional custom regexp
+ */
+export const isValidURLUTF8 = (url, regexp = /^((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/) => {
+    const regex = new RegExp(regexp);
+    return regex.test(url);
+};
+
+/**
  * Check url templates. It accepts URL in this format
  */
 export const isValidURLTemplate = (url, params, regexp = /^(http(s{0,1}):\/\/)+?[\w.\-{}]+(?:\.[\w\.-]+)+[\w\-\._~\/\;\.\%\:\&\=\?{}]+$/) => {
