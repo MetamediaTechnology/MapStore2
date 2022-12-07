@@ -36,6 +36,7 @@ import overlap from '@turf/boolean-overlap';
 import contains from '@turf/boolean-contains';
 import turfBbox from '@turf/bbox';
 import { getConfigProp } from './ConfigUtils';
+import { toLonLat } from 'ol/proj';
 
 let CoordinatesUtils;
 
@@ -71,6 +72,9 @@ export const FORMULAS = {
         return length;
     }
 };
+export function coordinatetoLatLon(coordinate) {
+    return toLonLat(coordinate, 'EPSG:3857');
+}
 // Checks if `list` looks like a `[x, y]`.
 function isXY(list) {
     return list.length >= 2 &&
