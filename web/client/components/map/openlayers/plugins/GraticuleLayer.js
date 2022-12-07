@@ -15,8 +15,8 @@ import {getStyle} from "../VectorStyle";
 function create(options, map) {
     let graticule = new Graticule({
         strokeStyle: options.style ? getStyle(options).getStroke() : new Stroke({
-            color: 'rgba(255,120,0,0.9)',
-            width: 2,
+            color: 'rgba(0,0,0,0.2)',
+            width: 1.7,
             lineDash: [0.5, 4]
         }),
         xLabelStyle: options.labelXStyle ? getStyle({
