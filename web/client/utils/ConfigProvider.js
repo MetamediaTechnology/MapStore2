@@ -839,10 +839,5 @@ export default {
                 }
             }
         }
-    },
-    sphere: {
-        options: {
-            attribution: '&copy; <a href="https://sphere.gistda.or.th/terms">GISTDA sphere</a>',
-        }
-    },
+    }
 };
