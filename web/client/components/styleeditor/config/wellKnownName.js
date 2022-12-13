@@ -213,7 +213,7 @@ const wellKnownName = [
         }
     },
     {
-        value: 'ttf://Webdings#0x21',
+        value: 'ttf://webdings#0x21',
         label: 'spider',
         preview: {
             type: 'point',
@@ -222,14 +222,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x22',
+        value: 'ttf://webdings#0x22',
         label: 'web',
         preview: {
             type: 'point',
@@ -238,14 +237,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x25',
+        value: 'ttf://webdings#0x25',
         label: 'trophy',
         preview: {
             type: 'point',
@@ -254,14 +252,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x26',
+        value: 'ttf://webdings#0x26',
         label: 'award',
         preview: {
             type: 'point',
@@ -270,14 +267,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x40',
+        value: 'ttf://webdings#0x40',
         label: 'tools',
         preview: {
             type: 'point',
@@ -286,14 +282,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x41',
+        value: 'ttf://webdings#0x41',
         label: 'underconstruction',
         preview: {
             type: 'point',
@@ -302,14 +297,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x42',
+        value: 'ttf://webdings#0x42',
         label: 'town',
         preview: {
             type: 'point',
@@ -318,14 +312,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x43',
+        value: 'ttf://webdings#0x43',
         label: 'city',
         preview: {
             type: 'point',
@@ -334,14 +327,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x46',
+        value: 'ttf://webdings#0x46',
         label: 'factory',
         preview: {
             type: 'point',
@@ -350,14 +342,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x47',
+        value: 'ttf://webdings#0x47',
         label: 'publicbuilding',
         preview: {
             type: 'point',
@@ -366,14 +357,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x48',
+        value: 'ttf://webdings#0x48',
         label: 'home',
         preview: {
             type: 'point',
@@ -382,14 +372,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x4A',
+        value: 'ttf://webdings#0x4A',
         label: 'island',
         preview: {
             type: 'point',
@@ -398,14 +387,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x4B',
+        value: 'ttf://webdings#0x4B',
         label: 'motorway',
         preview: {
             type: 'point',
@@ -414,14 +402,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x4D',
+        value: 'ttf://webdings#0x4D',
         label: 'mountain',
         preview: {
             type: 'point',
@@ -430,14 +417,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x50',
+        value: 'ttf://webdings#0x50',
         label: 'park',
         preview: {
             type: 'point',
@@ -446,14 +432,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x51',
+        value: 'ttf://webdings#0x51',
         label: 'camping',
         preview: {
             type: 'point',
@@ -462,14 +447,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x52',
+        value: 'ttf://webdings#0x52',
         label: 'railroad',
         preview: {
             type: 'point',
@@ -478,14 +462,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x53',
+        value: 'ttf://webdings#0x53',
         label: 'stadium',
         preview: {
             type: 'point',
@@ -494,14 +477,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x54',
+        value: 'ttf://webdings#0x54',
         label: 'ship',
         preview: {
             type: 'point',
@@ -510,14 +492,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x55',
+        value: 'ttf://webdings#0x55',
         label: 'soundon',
         preview: {
             type: 'point',
@@ -526,14 +507,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x59',
+        value: 'ttf://webdings#0x59',
         label: 'favorite',
         preview: {
             type: 'point',
@@ -542,14 +522,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x62',
+        value: 'ttf://webdings#0x62',
         label: 'bicycle',
         preview: {
             type: 'point',
@@ -558,14 +537,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x64',
+        value: 'ttf://webdings#0x64',
         label: 'sheild',
         preview: {
             type: 'point',
@@ -574,14 +552,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x65',
+        value: 'ttf://webdings#0x65',
         label: 'package',
         preview: {
             type: 'point',
@@ -590,14 +567,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x66',
+        value: 'ttf://webdings#0x66',
         label: 'fire',
         preview: {
             type: 'point',
@@ -606,14 +582,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x68',
+        value: 'ttf://webdings#0x68',
         label: 'medical',
         preview: {
             type: 'point',
@@ -622,14 +597,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x69',
+        value: 'ttf://webdings#0x69',
         label: 'information',
         preview: {
             type: 'point',
@@ -638,14 +612,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x70',
+        value: 'ttf://webdings#0x70',
         label: 'police',
         preview: {
             type: 'point',
@@ -654,14 +627,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x74',
+        value: 'ttf://webdings#0x74',
         label: 'train',
         preview: {
             type: 'point',
@@ -670,14 +642,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x75',
+        value: 'ttf://webdings#0x75',
         label: 'metro',
         preview: {
             type: 'point',
@@ -686,14 +657,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x76',
+        value: 'ttf://webdings#0x76',
         label: 'bus',
         preview: {
             type: 'point',
@@ -702,14 +672,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x77',
+        value: 'ttf://webdings#0x77',
         label: 'flag',
         preview: {
             type: 'point',
@@ -718,14 +687,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0x81',
+        value: 'ttf://webdings#0x81',
         label: 'woman',
         preview: {
             type: 'point',
@@ -734,14 +702,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xAF',
+        value: 'ttf://webdings#0xAF',
         label: 'music',
         preview: {
             type: 'point',
@@ -750,14 +717,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xAE',
+        value: 'ttf://webdings#0xAE',
         label: 'theatre',
         preview: {
             type: 'point',
@@ -766,14 +732,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xB4',
+        value: 'ttf://webdings#0xB4',
         label: 'filmclip',
         preview: {
             type: 'point',
@@ -782,14 +747,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xB5',
+        value: 'ttf://webdings#0xB5',
         label: 'pointofinterest',
         preview: {
             type: 'point',
@@ -798,14 +762,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xB7',
+        value: 'ttf://webdings#0xB7',
         label: 'film',
         preview: {
             type: 'point',
@@ -814,14 +777,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xB9',
+        value: 'ttf://webdings#0xB9',
         label: 'video',
         preview: {
             type: 'point',
@@ -830,14 +792,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xC5',
+        value: 'ttf://webdings#0xC5',
         label: 'phone',
         preview: {
             type: 'point',
@@ -846,14 +807,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xD5',
+        value: 'ttf://webdings#0xD5',
         label: 'sunny',
         preview: {
             type: 'point',
@@ -862,14 +822,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xD6',
+        value: 'ttf://webdings#0xD6',
         label: 'mostlysunny',
         preview: {
             type: 'point',
@@ -878,14 +837,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xD7',
+        value: 'ttf://webdings#0xD7',
         label: 'mostlycloudy',
         preview: {
             type: 'point',
@@ -894,14 +852,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xD8',
+        value: 'ttf://webdings#0xD8',
         label: 'showers',
         preview: {
             type: 'point',
@@ -910,14 +867,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xD9',
+        value: 'ttf://webdings#0xD9',
         label: 'cloudy',
         preview: {
             type: 'point',
@@ -926,14 +882,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xDA',
+        value: 'ttf://webdings#0xDA',
         label: 'snow',
         preview: {
             type: 'point',
@@ -942,14 +897,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xDB',
+        value: 'ttf://webdings#0xDB',
         label: 'rain',
         preview: {
             type: 'point',
@@ -958,14 +912,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xDC',
+        value: 'ttf://webdings#0xDC',
         label: 'lightning',
         preview: {
             type: 'point',
@@ -974,14 +927,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xDD',
+        value: 'ttf://webdings#0xDD',
         label: 'twister',
         preview: {
             type: 'point',
@@ -990,14 +942,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xDE',
+        value: 'ttf://webdings#0xDE',
         label: 'wind',
         preview: {
             type: 'point',
@@ -1006,14 +957,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xDF',
+        value: 'ttf://webdings#0xDF',
         label: 'fog',
         preview: {
             type: 'point',
@@ -1022,14 +972,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xE1',
+        value: 'ttf://webdings#0xE1',
         label: 'temperature',
         preview: {
             type: 'point',
@@ -1038,14 +987,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xE4',
+        value: 'ttf://webdings#0xE4',
         label: 'dining',
         preview: {
             type: 'point',
@@ -1054,14 +1002,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xE5',
+        value: 'ttf://webdings#0xE5',
         label: 'lounge',
         preview: {
             type: 'point',
@@ -1070,14 +1017,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xE7',
+        value: 'ttf://webdings#0xE7',
         label: 'shopping',
         preview: {
             type: 'point',
@@ -1086,14 +1032,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xE8',
+        value: 'ttf://webdings#0xE8',
         label: 'parking',
         preview: {
             type: 'point',
@@ -1102,14 +1047,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xE9',
+        value: 'ttf://webdings#0xE9',
         label: 'handycap',
         preview: {
             type: 'point',
@@ -1118,14 +1062,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xEC',
+        value: 'ttf://webdings#0xEC',
         label: 'education',
         preview: {
             type: 'point',
@@ -1134,14 +1077,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xF1',
+        value: 'ttf://webdings#0xF1',
         label: 'airplane',
         preview: {
             type: 'point',
@@ -1150,14 +1092,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xF3',
+        value: 'ttf://webdings#0xF3',
         label: 'bird',
         preview: {
             type: 'point',
@@ -1166,14 +1107,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xF5',
+        value: 'ttf://webdings#0xF5',
         label: 'dog',
         preview: {
             type: 'point',
@@ -1182,14 +1122,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xF6',
+        value: 'ttf://webdings#0xF6',
         label: 'cat',
         preview: {
             type: 'point',
@@ -1198,14 +1137,13 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
     },
     {
-        value: 'ttf://Webdings#0xF4',
+        value: 'ttf://webdings#0xF4',
         label: 'fish',
         preview: {
             type: 'point',
@@ -1214,8 +1152,7 @@ const wellKnownName = [
                 fill: '#333333',
                 style: {
                     fontSize: '200px',
-                    fontFamily: 'Webdings',
-                    transform: 'translate(-50%, 25%)'
+                    fontFamily: 'webdings'
                 }
             }]
         }
