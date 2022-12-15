@@ -236,8 +236,19 @@ class RecordItem extends React.Component {
                     this.sideCardDesc = sideCardDesc;
                 }}>{this.renderDescription(record)}</div></span>}
                 caption={
+                    // <div>
+                    //     {!this.props.hideIdentifier && <div className="identifier">{record && record.identifier}</div>}
+                    //     <div>{!record.isValid && <small className="text-danger"><Message msgId="catalog.missingReference"/></small>}</div>
+                    //     {!this.props.hideExpand &&
+                    //             <div
+                    //                 className="ms-ruler"
+                    //                 style={{visibility: 'hidden', height: 0, whiteSpace: 'nowrap', position: 'absolute' }}
+                    //                 ref={ruler => { this.descriptionRuler = ruler; }}>{this.renderDescription(record)}
+                    //             </div>
+                    //     }
+                    // </div>
                     <div>
-                        {!this.props.hideIdentifier && <div className="identifier">{record && record.identifier}</div>}
+                        {!this.props.hideIdentifier && <div className="identifier">{record && record.metadata?.creator }</div>}
                         <div>{!record.isValid && <small className="text-danger"><Message msgId="catalog.missingReference"/></small>}</div>
                         {!this.props.hideExpand &&
                                 <div

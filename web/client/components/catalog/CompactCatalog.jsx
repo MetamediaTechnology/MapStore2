@@ -137,13 +137,17 @@ export default compose(
             {!isNil(total) ? <span className="res-info"><Message msgId="catalog.pageInfoInfinite" msgParams={{loaded: items.length, total}}/></span> : null}
         </div>}>
         <SideGrid
-            items={items.map(i =>
-                i === selected
+            items={items.map(i => {
+                if (i === selected
                         || selected
                         && i && i.record
-                        && selected.identifier === i.record.identifier
-                    ? {...i, selected: true}
-                    : i)}
+                        && selected.identifier === i.record.identifier) {
+                    i.selected = true;
+                } else {
+                    i.caption = i.record?.metadata?.creator;
+                }
+                return i;
+            })}
             loading={loading}
             error={error}
             onItemClick={({record} = {}) => onRecordSelected(record, catalog)}/>
