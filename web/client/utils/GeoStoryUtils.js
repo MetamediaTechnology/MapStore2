@@ -559,6 +559,9 @@ export const extractFontNames = (fontFamilies) => {
 };
 
 export const DEFAULT_FONT_FAMILIES = [
+    'Sarabun',
+    'Bai Jamjuree',
+    'Krub',
     'inherit',
     'Arial',
     'Georgia',
